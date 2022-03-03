@@ -1,0 +1,5 @@
+[user]
+	email = tobias.hartvedt.knudsen@gmail.com
+	name = Tobias Knudsen
+[core]
+	excludesfile = /Users/tobiasknudsen/.gitignore_global

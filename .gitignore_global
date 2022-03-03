@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+.local.vimrc
+*.swo
+*.pyc
+.DS_Store
