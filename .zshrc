@@ -107,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias venv="source .venv/bin/activate"
 
+# Pretty branch view by Thomas Aarholt
+alias branch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|'"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Save history
