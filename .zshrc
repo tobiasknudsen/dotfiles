@@ -120,3 +120,10 @@ alias branch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(col
 # Save history
 HISTSIZE=1000000  # how many lines of history to keep in memory
 SAVEHIST=1000000  # how many lines to keep in the history file
+# Configure direnv
+eval "$(direnv hook zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
