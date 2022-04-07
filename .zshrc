@@ -112,6 +112,8 @@ alias venv="source .venv/bin/activate"
 alias klipy="$HOME/dev/klipy/.venv/bin/python -m klipy"
 alias pm="python manage.py"
 
+zle_highlight+=(paste:none)
+
 # Pretty branch view by Thomas Aarholt
 alias branch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|'"
 
