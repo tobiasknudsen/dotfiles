@@ -109,9 +109,9 @@ eval "$(pyenv init --path)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias venv="source .venv/bin/activate"
-alias klipy="$HOME/dev/klipy/.venv/bin/python -m klipy"
 alias pm="python manage.py"
 
+export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 zle_highlight+=(paste:none)
 
 # Pretty branch view by Thomas Aarholt
