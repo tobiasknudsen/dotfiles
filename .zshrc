@@ -110,6 +110,7 @@ eval "$(pyenv init --path)"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias venv="source .venv/bin/activate"
 alias pm="python manage.py"
+alias code=codium
 
 export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 zle_highlight+=(paste:none)
@@ -128,4 +129,12 @@ eval "$(direnv hook zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Interactive branch deletion from: https://peterp.me/cli-tips-interactive-branch-delete/
+ibd() {
+  local branches branch
+  branches=$(git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|') &&
+  branch=$(echo "$branches" | fzf --multi --ansi )
+  git branch -D $(echo "$branch" | sed "s/ .*//")
+}
 
