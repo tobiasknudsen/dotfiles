@@ -111,12 +111,12 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias venv="source .venv/bin/activate"
 alias pm="python manage.py"
 alias code=codium
+alias torwal="~/dev/TorWAL/wal/.venv/bin/python ~/dev/TorWAL/wal/wal.py"
+alias db="~/dev/deskbooker/.venv/bin/python ~/dev/deskbooker/deskbooker/deskbooker.py"
+alias vær="finger 0475@graph.no | grep -v NRK"
 
 export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 zle_highlight+=(paste:none)
-
-# Pretty branch view by Thomas Aarholt
-alias branch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
