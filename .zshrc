@@ -138,3 +138,17 @@ ibd() {
   git branch -D $(echo "$branch" | sed "s/ .*//")
 }
 
+# Interactive branch selection
+branch() {
+  local branches branch
+  branches=$(git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|') &&
+  branch=$(echo "$branches" | fzf --ansi )
+  git checkout $(echo "$branch" | sed "s/ .*//")
+}
+
+ganotify() {
+  runs=$(gh run list | awk -F'\t' '{print "\033[36m"$7"\033[0m:"$5":"$3":"$4":"$6":"$8":"$9}' | column -ts ":")
+  run=$(echo "$runs" | fzf --ansi --prompt="notify when complete:")
+  gh run watch $(echo "$run") && osascript -e 'display notification "Github workflow finished" with title "Tienda"'
+}
+
