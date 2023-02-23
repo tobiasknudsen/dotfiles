@@ -126,7 +126,6 @@ alias makemigrations="~/dev/tienda/.venv/bin/python manage.py makemigrations"
 alias migrate="~/dev/tienda/.venv/bin/python manage.py migrate"
 alias shell="~/dev/tienda/.venv/bin/python manage.py shell_plus"
 alias generate="~/dev/tienda/.venv/bin/python manage.py generate_api_schemas | npm run openapi:generate"
-alias gs="git stash -m $(git symbolic-ref --short -q HEAD)"
 
 export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 zle_highlight+=(paste:none)
@@ -163,6 +162,12 @@ ganotify() {
   runs=$(gh run list | awk -F'\t' '{print "\033[36m"$7"\033[0m:"$5":"$3":"$4":"$6":"$8":"$9}' | column -ts ":")
   run=$(echo "$runs" | fzf --ansi --prompt="notify when complete:")
   gh run watch $(echo "$run") && osascript -e 'display notification "Github workflow finished" with title "Tienda"'
+}
+
+# Name stash after current branch
+gs() {
+  branch=$(git symbolic-ref --short -q HEAD)
+  git stash -m "$branch"
 }
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
