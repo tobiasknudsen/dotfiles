@@ -108,7 +108,7 @@ eval "$(pyenv init --path)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dotfiles="/opt/homebrew/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias venv="source .venv/bin/activate"
 alias pm="python manage.py"
 alias code=codium
