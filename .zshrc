@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell 2"
+ZSH_THEME="robbyrussell_2"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -63,7 +63,7 @@ ZSH_THEME="robbyrussell 2"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -100,33 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # Make pyenv work
 eval "$(pyenv init --path)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-alias venv="source .venv/bin/activate"
-alias pm="python manage.py"
-alias code=codium
-alias torwal="~/dev/TorWAL/wal/.venv/bin/python ~/dev/TorWAL/wal/wal.py"
-alias db="~/dev/deskbooker/.venv/bin/python ~/dev/deskbooker/deskbooker/deskbooker.py"
-alias vær="finger 0475@graph.no | grep -v NRK"
-# Run black, isort, flake8 on all changed files
-alias pretty="git ls-files '*.py' -m | xargs -I % sh -c 'black %; isort %; flake8 %'"
-
-alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
-alias klipy="~/dev/klipy/.venv/bin/python -m klipy"
-
-# Django
-alias runserver="~/dev/tienda/.venv/bin/python manage.py runserver 0.0.0.0:8000"
-alias makemigrations="~/dev/tienda/.venv/bin/python manage.py makemigrations"
-alias migrate="~/dev/tienda/.venv/bin/python manage.py migrate"
-alias shell="~/dev/tienda/.venv/bin/python manage.py shell_plus"
-alias generate="~/dev/tienda/.venv/bin/python manage.py generate_api_schemas | npm run openapi:generate"
 
 export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 zle_highlight+=(paste:none)
