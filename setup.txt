@@ -1,0 +1,58 @@
+# Install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# add homebrew to PATH
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew tap homebrew/cask-versions
+
+# Install 1 password
+1password
+
+# install oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+brew install fzf
+brew install pyenv
+brew install direnv
+brew install precommit
+brew install xz (To make python from asdf work)
+brew install terraform
+
+brew install asdf
+asdf plugin add python
+asdf plugin add nodejs
+
+- Set up ssh in 1password
+
+# dotfiles
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+git clone --bare git@github.com:tobiasknudsen/dotfiles.git $HOME/.dotfiles.git
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+
+
+# manually install ohmyzsh plugins:
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
+
+brew install raycast
+brew install firefox
+brew install --cask firefox-developer-edition
+brew install dropbox
+brew install --cask bettertouchtool
+brew install simplenote
+brew install vscodium
+
+# Create symlink for settings and keybindings
+rm ~/Library/Application\ Support/VSCodium/User/settings.json
+ln -s ~/.vscodium/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
+
+rm ~/Library/Application\ Support/VSCodium/User/keybindings.json
+ln -s ~/.vscodium/keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
+
+
+install aldente
+install https://topnotch.app/
+install istats menu 5 https://download.bjango.com/istatmenus5/
