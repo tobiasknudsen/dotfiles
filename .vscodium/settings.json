@@ -1,0 +1,22 @@
+{
+  "terminal.integrated.cursorStyle": "line",
+  "search.useGlobalIgnoreFiles": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "debug.onTaskErrors": "debugAnyway",
+  "python.formatting.provider": "black",
+  "debug.internalConsoleOptions": "neverOpen",
+  "autoDocstring.startOnNewLine": true,
+  "debug.inlineValues": true,
+  "debug.showSubSessionsInToolBar": true,
+  "debug.showInStatusBar": "always",
+  "debug.console.historySuggestions": false,
+  "editor.find.seedSearchStringFromSelection": false,
+  "debug.openDebug": "neverOpen",
+  "editor.stickyScroll.enabled": true,
+  "git.mergeEditor": true,
+  "workbench.editor.enablePreview": false,
+  "python.languageServer": "Pylance",
+  "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.fileListLayout": "flat"
+}
