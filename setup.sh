@@ -81,6 +81,7 @@ echo "Download non brew apps"
 curl -L https://github.com/davidwernhart/AlDente-Charge-Limiter/releases/download/1.20/AlDente.dmg --output ~/Downloads/AlDente.dmg
 curl -L https://updates.topnotch.app/TopNotch-latest.zip --output ~/Downloads/TopNotch-latest.zip
 curl -L https://download.bjango.com/istatmenus5/ --output ~/Downloads/istatmenus5.zip
+curl -L https://macrelease.matthewpalmer.net/Vanilla.dmg --output ~/Downloads/Vanilla.dmg
 
 printf 'Set Mac OS settings(y/n)? '
 read answer
