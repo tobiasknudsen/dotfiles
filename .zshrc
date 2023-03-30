@@ -129,7 +129,10 @@ branch() {
   local branches branch
   branches=$(git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|') &&
   branch=$(echo "$branches" | fzf --ansi )
-  git checkout $(echo "$branch" | sed "s/ .*//")
+  if [ ! -z "$branch" ];
+  then
+    git checkout $(echo "$branch" | sed "s/ .*//")
+  fi
 }
 
 ganotify() {
