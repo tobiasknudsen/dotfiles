@@ -147,4 +147,13 @@ gs() {
   git stash -m "$branch"
 }
 
+# Stash picker
+gsl(){
+  stash_index=$(git stash list | fzf | cut -d "{" -f2 | cut -d "}" -f1)
+  if [ ! -z "$stash_index" ];
+  then
+    git stash pop "$stash_index"
+  fi
+}
+
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
