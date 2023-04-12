@@ -135,6 +135,17 @@ branch() {
   fi
 }
 
+# Interactive branch selection
+remote_branch() {
+  local branches branch
+  branches=$(git for-each-ref --sort=-committerdate refs/remotes/ --format='%(color:blue)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|') &&
+  branch=$(echo "$branches" | fzf --ansi )
+  if [ ! -z "$branch" ];
+  then
+    git checkout $(echo "$branch" | sed "s/ .*//" | cut -d "/" -f 2-)
+  fi
+}
+
 ganotify() {
   runs=$(gh run list | awk -F'\t' '{print "\033[36m"$7"\033[0m:"$5":"$3":"$4":"$6":"$8":"$9}' | column -ts ":")
   run=$(echo "$runs" | fzf --ansi --prompt="notify when complete:")
