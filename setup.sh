@@ -82,6 +82,7 @@ curl -L https://github.com/davidwernhart/AlDente-Charge-Limiter/releases/downloa
 curl -L https://updates.topnotch.app/TopNotch-latest.zip --output ~/Downloads/TopNotch-latest.zip
 curl -L https://download.bjango.com/istatmenus5/ --output ~/Downloads/istatmenus5.zip
 curl -L https://macrelease.matthewpalmer.net/Vanilla.dmg --output ~/Downloads/Vanilla.dmg
+curl -L https://github.com/menubar-apps/PullBar/releases/download/v1.5/pullBar.1.5.dmg --output ~/Downloads/pullBar.1.5.dmg
 
 printf 'Set Mac OS settings(y/n)? '
 read answer
