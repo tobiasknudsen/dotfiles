@@ -65,6 +65,7 @@ apps=(
     bettertouchtool
     simplenote
     vscodium
+    shottr
 )
 
 echo "installing apps with Cask..."
