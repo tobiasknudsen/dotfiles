@@ -1,5 +1,15 @@
 [user]
 	email = tobias.hartvedt.knudsen@gmail.com
 	name = Tobias Knudsen
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINDmL5WAU4b3Xv8iSLnw/5zI+jQ7sDhALgrLDZr0y8uA
 [core]
 	excludesfile = /Users/tobiasknudsen/.gitignore_global
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+[init]
+	templatedir = /Users/tobiasknudsen/.git_template
+	defaultBranch = main
