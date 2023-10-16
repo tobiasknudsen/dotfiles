@@ -100,11 +100,17 @@ source $ZSH/oh-my-zsh.sh
 # Make pyenv work
 eval "$(pyenv init --path)"
 
+# Make overtime work
+export PATH=$PATH:/Users/tobiasknudsen/dev/overtime
+
 
 export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 zle_highlight+=(paste:none)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Make thefuck work
+eval $(thefuck --alias)
 
 # Save history
 HISTSIZE=1000000  # how many lines of history to keep in memory
