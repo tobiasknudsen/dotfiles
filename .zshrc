@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 eval "$(pyenv init --path)"
 
 # Make overtime work
-export PATH=$PATH:/Users/tobiasknudsen/dev/overtime
+export PATH=$PATH:/Users/tobiasknudsen/dev/overtime/
 
 
 export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
