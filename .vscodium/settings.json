@@ -1,22 +1,52 @@
 {
-  "terminal.integrated.cursorStyle": "line",
-  "search.useGlobalIgnoreFiles": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.mypyEnabled": true,
-  "debug.onTaskErrors": "debugAnyway",
-  "python.formatting.provider": "black",
-  "debug.internalConsoleOptions": "neverOpen",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "autoDocstring.startOnNewLine": true,
-  "debug.inlineValues": true,
-  "debug.showSubSessionsInToolBar": true,
-  "debug.showInStatusBar": "always",
-  "debug.console.historySuggestions": false,
-  "editor.find.seedSearchStringFromSelection": false,
+  "debug.console.wordWrap": false,
+  "debug.inlineValues": "off",
+  "debug.internalConsoleOptions": "neverOpen",
+  "debug.onTaskErrors": "debugAnyway",
   "debug.openDebug": "neverOpen",
+  "debug.showInStatusBar": "always",
+  "debug.showSubSessionsInToolBar": true,
+  "editor.find.seedSearchStringFromSelection": "never",
+  "editor.inlineSuggest.enabled": true,
   "editor.stickyScroll.enabled": true,
+  "editor.wordWrap": "on",
   "git.mergeEditor": true,
-  "workbench.editor.enablePreview": false,
-  "python.languageServer": "Pylance",
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": false,
+    "plaintext": true,
+    "scminput": false
+  },
+  "githubPullRequests.commentExpandState": "collapseAll",
+  "githubPullRequests.fileListLayout": "tree",
   "githubPullRequests.pullBranch": "never",
-  "githubPullRequests.fileListLayout": "flat"
+  "mypy-type-checker.importStrategy": "fromEnvironment",
+  "npm.keybindingsChangedWarningShown": true,
+  "python.languageServer": "Pylance",
+  "search.useGlobalIgnoreFiles": true,
+  "terminal.integrated.cursorStyle": "line",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "window.commandCenter": false,
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true
 }
