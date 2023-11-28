@@ -21,5 +21,16 @@
     {
         "key": "alt+left",
         "command": "workbench.action.previousEditorInGroup"
-    }
+    },
+    {
+        "command": "runCommands",
+        "key": "alt+shift+f",
+        "args": {
+          "commands": [
+            "editor.action.formatDocument",
+            "editor.action.organizeImports"
+          ]
+        }
+      }
+
 ]
