@@ -22,6 +22,7 @@ git config --global pull.rebase true
 
 echo "Installing other brew stuff..."
 brew install fzf
+brew install bat
 brew install pyenv
 brew install direnv
 brew install precommit
@@ -66,17 +67,18 @@ apps=(
     simplenote
     vscodium
     shottr
+    cursor
 )
 
 echo "installing apps with Cask..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
 echo "Create symlink for settings and keybindings"
-rm ~/Library/Application\ Support/VSCodium/User/settings.json
-ln -s ~/.vscodium/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
+rm ~/Library/Application\ Support/Cursor/User/settings.json
+ln -s ~/.vscodium/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
 
-rm ~/Library/Application\ Support/VSCodium/User/keybindings.json
-ln -s ~/.vscodium/keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
+rm ~/Library/Application\ Support/Cursor/User/keybindings.json
+ln -s ~/.vscodium/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
 
 echo "Download non brew apps"
 curl -L https://github.com/davidwernhart/AlDente-Charge-Limiter/releases/download/1.20/AlDente.dmg --output ~/Downloads/AlDente.dmg
