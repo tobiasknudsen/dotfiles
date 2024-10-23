@@ -60,7 +60,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 apps=(
     raycast
     firefox
-    firefox-developer-edition
+    firefox@developer-edition
     dropbox
     slack
     bettertouchtool
