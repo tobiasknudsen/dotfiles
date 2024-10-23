@@ -1,36 +1,36 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "cmd+[Backslash]",
-        "command": "editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "shift+cmd+d",
-        "command": "-workbench.view.debug",
-        "when": "viewContainer.workbench.view.debug.enabled"
-    },
-    {
-        "key": "shift+cmd+d",
-        "command": "editor.action.duplicateSelection"
-    },
-    {
-        "key": "alt+right",
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    {
-        "key": "alt+left",
-        "command": "workbench.action.previousEditorInGroup"
-    },
-    {
-        "command": "runCommands",
-        "key": "alt+shift+f",
-        "args": {
-          "commands": [
-            "editor.action.formatDocument",
-            "editor.action.organizeImports"
-          ]
-        }
-      }
-
+  {
+    "key": "cmd+[Backslash]",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "-workbench.view.debug",
+    "when": "viewContainer.workbench.view.debug.enabled"
+  },
+  {
+    "key": "alt+right",
+    "command": "workbench.action.nextEditorInGroup"
+  },
+  {
+    "key": "alt+left",
+    "command": "workbench.action.previousEditorInGroup"
+  },
+  {
+    "command": "runCommands",
+    "key": "alt+shift+f",
+    "when": "resourceExtname != '.ts' && resourceExtname != '.tsx' ",
+    "args": {
+      "commands": [
+        "editor.action.formatDocument",
+        "editor.action.organizeImports"
+      ]
+    }
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "editor.action.duplicateSelection"
+  }
 ]
