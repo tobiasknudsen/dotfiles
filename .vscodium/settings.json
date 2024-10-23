@@ -1,21 +1,9 @@
 {
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[json][jsonc][javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "autoDocstring.startOnNewLine": true,
   "debug.console.wordWrap": false,
@@ -27,19 +15,11 @@
   "debug.showSubSessionsInToolBar": true,
   "editor.find.seedSearchStringFromSelection": "never",
   "editor.inlineSuggest.enabled": true,
-  "editor.stickyScroll.enabled": true,
   "editor.wordWrap": "on",
   "git.mergeEditor": true,
-  "github.copilot.enable": {
-    "*": true,
-    "markdown": false,
-    "plaintext": true,
-    "scminput": false
-  },
   "githubPullRequests.commentExpandState": "collapseAll",
   "githubPullRequests.fileListLayout": "tree",
   "githubPullRequests.pullBranch": "never",
-  "mypy-type-checker.importStrategy": "fromEnvironment",
   "npm.keybindingsChangedWarningShown": true,
   "python.languageServer": "Pylance",
   "search.useGlobalIgnoreFiles": true,
@@ -48,5 +28,32 @@
   "window.commandCenter": false,
   "workbench.colorTheme": "Default Dark+",
   "workbench.editor.enablePreviewFromCodeNavigation": true,
-  "workbench.editor.enablePreviewFromQuickOpen": true
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnType": false,
+  "mypy.runUsingActiveInterpreter": true,
+  "eslint.format.enable": true,
+  // "git.openDiffOnClick": false,
+  "window.zoomLevel": 1,
+  "editor.stickyScroll.enabled": true,
+  "editor.accessibilitySupport": "off",
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "ruff.format.args": ["--config=pyproject.toml"],
+  "ruff.codeAction.disableRuleComment": {
+    "enable": false
+  },
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "workbench.activityBar.orientation": "vertical",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "onFocusChange",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
