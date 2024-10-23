@@ -97,9 +97,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Make pyenv work
-eval "$(pyenv init --path)"
-
 # Make overtime work
 export PATH=$PATH:/Users/tobiasknudsen/dev/overtime/
 
@@ -166,11 +163,97 @@ gs() {
 
 # Stash picker
 gsl(){
-  stash_index=$(git stash list | fzf | cut -d "{" -f2 | cut -d "}" -f1)
-  if [ ! -z "$stash_index" ];
-  then
-    git stash pop "$stash_index"
-  fi
+  git stash list \
+  | fzf \
+      --ansi \
+      --prompt='Pop > ' \
+      --header-first \
+      --preview-label=' Stash ' \
+      --preview 'git stash show -p --stat --color=always $(echo {} | cut -d "{" -f2 | cut -d "}" -f1)' \
+      --bind 'enter:execute(
+          stash=$(echo {} | cut -d "{" -f2 | cut -d "}" -f1) \
+          && [[ $stash != "" ]] \
+          && git stash pop $stash
+        )+abort' \
+}
+
+ga(){
+  staged_files='git ls-files \
+    --modified \
+    --deleted \
+    --other \
+    --exclude-standard \
+    --deduplicate \
+    $(git rev-parse --show-toplevel)' \
+  && unstaged_files='git status  --short \
+    | grep "^[A-Z]" \
+    | awk "{print \$NF}"' \
+  && eval "$staged_files" | fzf \
+    --multi \
+    --reverse \
+    --no-sort \
+    --prompt='Add > ' \
+    --header-first \
+    --header '
+    > CTRL-R to Reset | CTRL-A to Add
+    ' \
+    --preview='git status  --short \
+          | grep "^[A-Z]" \
+          | awk "{print \$NF}"' \
+    --preview-label=' Staged ' \
+    --bind='ctrl-a:change-prompt(Add > )' \
+    --bind="ctrl-a:+change-preview($unstaged_files)" \
+    --bind="ctrl-a:+change-preview-label( Staged )" \
+    --bind="ctrl-a:+reload($staged_files)" \
+    --bind='ctrl-r:change-prompt(Reset > )' \
+    --bind="ctrl-r:+change-preview($staged_files)" \
+    --bind="ctrl-r:+change-preview-label( Changes )" \
+    --bind="ctrl-r:+reload($unstaged_files)" \
+    --bind="enter:execute($staged_files | grep {} \
+            && git add {+} \
+            || git reset -- {+})" \
+    --bind="enter:+reload(
+            [[ \$FZF_PROMPT =~ 'Add >' ]] \
+            && $staged_files \
+            || $unstaged_files
+            )" \
+    --bind='enter:+refresh-preview' \
+    --bind='ctrl-p:execute(git add --patch {+})'
+}
+
+gap(){
+  staged_files='git ls-files \
+    --modified \
+    --deleted \
+    --other \
+    --exclude-standard \
+    --deduplicate \
+    $(git rev-parse --show-toplevel)' \
+    && eval "$staged_files" | fzf \
+    --preview 'git diff --color=always {}' \
+    --bind="enter:execute(git diff --color=always {} | fzf --multi)"
+}
+
+gl(){
+  git log \
+    --graph \
+    --color \
+    --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' \
+    --date=short \
+  | fzf \
+    --ansi \
+    --reverse \
+    --no-sort \
+    --multi \
+    --bind 'enter:execute(
+      hash=$(echo {+} | grep -o "[a-f0-9]\{7\}" | tr "\n" " ")\
+      && [[ $hash != "" ]] \
+      && echo $hash \
+      && pbcopy <<< $hash
+    )+abort' \
 }
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Created by `pipx` on 2024-02-23 09:25:33
+export PATH="$PATH:/Users/tobiasknudsen/.local/bin"
