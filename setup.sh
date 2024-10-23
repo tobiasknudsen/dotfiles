@@ -83,6 +83,9 @@ echo "Installing zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
 
+echo "Open Cursor to create Application Support folder"
+read -p "Press [Enter] when finished..."
+
 echo "Create symlink for settings and keybindings"
 rm ~/Library/Application\ Support/Cursor/User/settings.json
 ln -s ~/.vscodium/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
