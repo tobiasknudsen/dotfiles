@@ -70,8 +70,14 @@ apps=(
     1password
 )
 
-echo "installing apps with Cask..."
-brew install --appdir="/Applications" --cask ${apps[@]}
+for app in "${apps[@]}"; do
+    if ! brew list --cask "$app" &>/dev/null; then
+        echo "Installing $app..."
+        brew install --appdir="/Applications" --cask "$app"
+    else
+        echo "$app is already installed."
+    fi
+done
 
 echo "Installing zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
