@@ -71,7 +71,7 @@ apps=(
 )
 
 echo "installing apps with Cask..."
-brew cask install --appdir="/Applications" ${apps[@]}
+brew install --appdir="/Applications" ${apps[@]} --cask
 
 echo "Installing zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
