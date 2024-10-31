@@ -249,7 +249,7 @@ gl(){
       hash=$(echo {+} | grep -o "[a-f0-9]\{7\}" | tr "\n" " ")\
       && [[ $hash != "" ]] \
       && echo $hash \
-      && pbcopy <<< $hash
+      && echo -n $hash | pbcopy
     )+abort' \
 }
 
