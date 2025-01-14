@@ -17,6 +17,7 @@ alias showmigrations='DJANGO_SETTINGS_MODULE="tienda.settings_local" POSTGRES_DB
 alias migrate='DJANGO_SETTINGS_MODULE="tienda.settings_local" POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py migrate'
 alias shell='DJANGO_SETTINGS_MODULE="tienda.settings_local" POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py shell_plus'
 alias update-db='DJANGO_SETTINGS_MODULE="tienda.settings_local" POSTGRES_DB="tienda" TENANT="no" ./bin/update-db'
+alias manage='DJANGO_SETTINGS_MODULE="tienda.settings_local" POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py'
 
 alias runserver:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTGRES_DB="tienda_se" TENANT="se" ~/dev/tienda/.venv/bin/python manage.py runserver 0.0.0.0:8000'
 alias makemigrations:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTGRES_DB="tienda_se" TENANT="se" ~/dev/tienda/.venv/bin/python manage.py makemigrations'
@@ -24,6 +25,7 @@ alias showmigrations:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTG
 alias migrate:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTGRES_DB="tienda_se" TENANT="se" ~/dev/tienda/.venv/bin/python manage.py migrate'
 alias shell:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTGRES_DB="tienda_se" TENANT="se" ~/dev/tienda/.venv/bin/python manage.py shell_plus'
 alias update-db:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTGRES_DB="tienda_se" TENANT="se" ./bin/update-db'
+alias manage:se='DJANGO_SETTINGS_MODULE="tienda.settings_local_se" POSTGRES_DB="tienda_se" TENANT="se" ~/dev/tienda/.venv/bin/python manage.py'
 
 
 alias generate="~/dev/tienda/.venv/bin/python manage.py generate_api_schemas ; npm run openapi:generate"
