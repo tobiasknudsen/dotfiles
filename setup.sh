@@ -68,6 +68,8 @@ apps=(
     shottr
     cursor
     1password
+    grammarly-desktop
+    google-drive
 )
 
 for app in "${apps[@]}"; do
