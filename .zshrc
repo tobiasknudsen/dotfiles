@@ -238,7 +238,7 @@ gl(){
   git log \
     --graph \
     --color \
-    --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' \
+    --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an %Creset%s%Cgreen%d' \
     --date=short \
   | fzf \
     --ansi \
