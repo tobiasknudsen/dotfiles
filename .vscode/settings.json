@@ -5,6 +5,9 @@
   "[json][jsonc][javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
   "autoDocstring.startOnNewLine": true,
   "debug.console.wordWrap": false,
   "debug.inlineValues": "off",
@@ -29,9 +32,6 @@
   "workbench.colorTheme": "Default Dark+",
   "workbench.editor.enablePreviewFromCodeNavigation": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.formatOnType": false,
   "mypy.runUsingActiveInterpreter": true,
   "eslint.format.enable": true,
@@ -39,9 +39,6 @@
   "window.zoomLevel": 1,
   "editor.stickyScroll.enabled": true,
   "editor.accessibilitySupport": "off",
-  "[django-html]": {
-    "editor.defaultFormatter": "monosans.djlint"
-  },
   "ruff.format.args": ["--config=pyproject.toml"],
   "ruff.codeAction.disableRuleComment": {
     "enable": false
@@ -49,11 +46,9 @@
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "workbench.activityBar.orientation": "vertical",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "files.autoSave": "onFocusChange",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "cursor.chat.terminalShowHoverHint": false,
+  "[html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
 }
