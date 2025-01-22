@@ -90,10 +90,10 @@ read -p "Press [Enter] when finished..."
 
 echo "Create symlink for settings and keybindings"
 rm ~/Library/Application\ Support/Cursor/User/settings.json
-ln -s ~/.vscodium/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+ln -s ~/.vscode/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
 
 rm ~/Library/Application\ Support/Cursor/User/keybindings.json
-ln -s ~/.vscodium/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
+ln -s ~/.vscode/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
 
 echo "Download non brew apps"
 curl -L https://github.com/davidwernhart/AlDente-Charge-Limiter/releases/download/1.20/AlDente.dmg --output ~/Downloads/AlDente.dmg
