@@ -32,7 +32,8 @@ alias generate="~/dev/tienda/.venv/bin/python manage.py generate_api_schemas ; n
 
 # Tienda web
 alias start:no='NEXT_PUBLIC_TENANT="no" TIENDA_INTERNAL_HOSTNAME="http://oda.localhost" TIENDA_DOMAIN="oda.localhost" TIENDA_HOSTNAME="http://oda.localhost" TIENDA_WEB_HOSTNAME="http://oda.localhost" X_CLIENT_TOKEN="OeD5WJnGuY3JxAF5rs61cjdjuvUfKplN7izeeU5MoH3HsNwol4" npm run start:no'
-alias start:se='NEXT_PUBLIC_TENANT="se" TIENDA_INTERNAL_HOSTNAME="http://mathem.localhost" TIENDA_DOMAIN="mathem.localhost" TIENDA_HOSTNAME="http://mathem.localhost" TIENDA_WEB_HOSTNAME="http://mathem.localhost" X_CLIENT_TOKEN="IJxqnIXYOzxP7ZfAxnKUTLsSwEvn1W6iDYHRg2WBuAOW7zw7qI" npm run start:se'
+alias start:se='NEXT_PUBLIC_TENANT="se" TIENDA_INTERNAL_HOSTNAME="http://mathem.localhost" TIENDA_DOMAIN="mathem.localhost" TIENDA_HOSTNAME="http://mathem.localhost" TIENDA_WEB_HOSTNAME="http://mathem.localhost" X_CLIENT_TOKEN="OeD5WJnGuY3JxAF5rs61cjdjuvUfKplN7izeeU5MoH3HsNwol4" npm run start:se'
+
 # Remove zsh aliases
 unalias ga
 unalias gr
