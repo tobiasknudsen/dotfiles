@@ -1,7 +1,6 @@
 alias dotfiles="/opt/homebrew/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias venv="source .venv/bin/activate"
 alias pm="python manage.py"
-alias code=codium
 alias torwal="~/dev/TorWAL/wal/.venv/bin/python ~/dev/TorWAL/wal/wal.py"
 alias db="~/dev/deskbooker/.venv/bin/python ~/dev/deskbooker/deskbooker/deskbooker.py"
 alias vær="finger 0475@graph.no | grep -v NRK"
