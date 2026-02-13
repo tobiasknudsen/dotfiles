@@ -13,3 +13,7 @@
 [init]
 	templatedir = /Users/tobiasknudsen/.git_template
 	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
