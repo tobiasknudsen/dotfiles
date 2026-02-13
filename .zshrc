@@ -177,6 +177,26 @@ gsl(){
         )+abort' \
 }
 
+# Stash delete
+gsd(){
+  git stash list \
+  | fzf \
+      --ansi \
+      --multi \
+      --prompt='Delete > ' \
+      --header-first \
+      --preview-label=' Stash ' \
+      --preview 'git stash show -p --stat --color=always $(echo {} | cut -d "{" -f2 | cut -d "}" -f1)' \
+      --bind 'enter:execute(
+          echo {} | while IFS= read -r line; do \
+              stash=$(echo "$line" | grep -o "stash@{[0-9]*}" | head -1) \
+              && [[ $stash != "" ]] \
+              && echo "Dropping stash: $stash" \
+              && git stash drop $stash; \
+          done \
+        )+abort' \
+}
+
 ga(){
   staged_files='git ls-files \
     --modified \
