@@ -158,7 +158,7 @@ ganotify() {
 # Name stash after current branch
 gs() {
   branch=$(git symbolic-ref --short -q HEAD)
-  git stash -m "$branch"
+  git stash --include-untracked -m "$branch"
 }
 
 # Stash picker
