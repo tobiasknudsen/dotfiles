@@ -277,3 +277,13 @@ gl(){
 
 # Created by `pipx` on 2024-02-23 09:25:33
 export PATH="$PATH:/Users/tobiasknudsen/.local/bin"
+eval "$(asdf exec direnv hook "$(basename "$SHELL")")"
+
+# Fabrica CLI wrapper function
+source "/Users/tobiasknudsen/.zshrc.d/fabrica.sh"
+
+# Fabrica directory
+export FABRICA_DIR="/Users/tobiasknudsen/dev/fabrica"
+
+# Auto-completion for fabrica CLI
+source "/Users/tobiasknudsen/.zshrc.d/fabrica-completion.sh"
