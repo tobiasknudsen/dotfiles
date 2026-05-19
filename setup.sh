@@ -58,7 +58,6 @@ apps=(
     raycast
     firefox
     firefox@developer-edition
-    dropbox
     slack
     bettertouchtool
     simplenote
