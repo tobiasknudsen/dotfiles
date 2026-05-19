@@ -32,5 +32,28 @@
   {
     "key": "shift+cmd+d",
     "command": "editor.action.duplicateSelection"
+  },
+  {
+    "key": "cmd+r cmd+t",
+    "command": "-workbench.action.selectTheme"
+  },
+  {
+    "key": "cmd+r cmd+t",
+    "command": "testing.runCurrentFile",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+[Comma] f",
+    "command": "-testing.runCurrentFile",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "alt+cmd+s",
+    "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+    "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
   }
 ]

@@ -1,6 +1,7 @@
 {
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "diffEditor.ignoreTrimWhitespace": true
   },
   "[json][jsonc][javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -16,7 +17,6 @@
   "debug.openDebug": "neverOpen",
   "debug.showInStatusBar": "always",
   "debug.showSubSessionsInToolBar": true,
-  "editor.find.seedSearchStringFromSelection": "never",
   "editor.inlineSuggest.enabled": true,
   "editor.wordWrap": "on",
   "git.mergeEditor": true,
@@ -24,7 +24,6 @@
   "githubPullRequests.fileListLayout": "tree",
   "githubPullRequests.pullBranch": "never",
   "npm.keybindingsChangedWarningShown": true,
-  "python.languageServer": "Pylance",
   "search.useGlobalIgnoreFiles": true,
   "terminal.integrated.cursorStyle": "line",
   "typescript.preferences.importModuleSpecifier": "relative",
@@ -39,16 +38,42 @@
   "window.zoomLevel": 1,
   "editor.stickyScroll.enabled": true,
   "editor.accessibilitySupport": "off",
-  "ruff.format.args": ["--config=pyproject.toml"],
   "ruff.codeAction.disableRuleComment": {
     "enable": false
   },
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
   "workbench.activityBar.orientation": "vertical",
-  "files.autoSave": "onFocusChange",
   "cursor.chat.terminalShowHoverHint": false,
   "[html]": {
     "editor.defaultFormatter": "monosans.djlint"
   },
+  "ruff.configuration": "./pyproject.toml",
+  "djlint.configuration": "./pyproject.toml",
+  "i18n-ally.autoDetection": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "git.blame.editorDecoration.enabled": false,
+  "python.testing.autoTestDiscoverOnSavePattern": "./tienda/**/*.py",
+  "gitlens.views.commits.files.layout": "tree",
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": false,
+    "repositories": true,
+    "searchAndCompare": true,
+    "launchpad": false
+  },
+  "terminal.integrated.scrollback": 5000,
+  "cursor.composer.queueMessageDefaultBehavior": "stop-and-send",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "git.detectWorktrees": false,
+  "window.autoDetectColorScheme": false,
 }

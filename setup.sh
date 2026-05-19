@@ -33,14 +33,11 @@ read -p "Press [Enter] when finished..."
 
 echo "Installing other brew stuff..."
 brew install fzf
-brew install bat
-brew install pyenv
-brew install direnv
 brew install precommit
-brew install xz #(To make python from asdf work)
 brew install terraform
 brew install poetry
 brew install bruno
+
 
 echo "Install asdf..."
 brew install asdf

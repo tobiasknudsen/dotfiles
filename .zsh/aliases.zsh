@@ -15,7 +15,7 @@ alias makemigrations='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/py
 alias showmigrations='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py showmigrations'
 alias migrate='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py migrate'
 alias shell='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py shell_plus'
-alias update-db='POSTGRES_DB="tienda" TENANT="no" ./bin/update-db'
+alias update-db='DJANGO_SETTINGS_MODULE=tienda.settings POSTGRES_DB="tienda" TENANT="no" ./bin/update-db'
 alias manage='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py'
 
 alias generate="make schemas"
