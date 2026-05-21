@@ -1,11 +1,11 @@
+#!/bin/bash
 # print stashes that exist for the currently switched-to branch
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 branch=$(git rev-parse --abbrev-ref HEAD)
-stashes=`git stash list | grep "WIP on $branch"`
-if [ "$stashes" ]
-then
-  echo "${GREEN}You have the following stashes for this branch:"
-  echo "${stashes}${NC}"
+stashes=$(git stash list | grep -i "WIP on $branch:")
+if [ -n "$stashes" ]; then
+  echo -e "\033[0;32mYou have stashes for this branch:"
+  echo -e "${stashes}\033[0m"
 fi

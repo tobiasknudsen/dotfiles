@@ -18,7 +18,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/Users/tobiasknudsen/dev/overtime/
 
 
-export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
+# Make sure klipy works
+export PATH=$PATH:/Users/smith/.klipy/bin/
+alias klipy="~/dev/klipy/.venv/bin/python -m klipy"
+
 zle_highlight+=(paste:none)
 
 export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
@@ -66,12 +69,6 @@ remote_branch() {
   then
     git checkout $(echo "$branch" | sed "s/ .*//" | cut -d "/" -f 2-)
   fi
-}
-
-# Name stash after current branch
-gs() {
-  branch=$(git symbolic-ref --short -q HEAD)
-  git stash --include-untracked -m "$branch"
 }
 
 # Stash picker
@@ -200,3 +197,9 @@ export FABRICA_DIR="/Users/tobiasknudsen/dev/fabrica"
 
 # Auto-completion for fabrica CLI
 source "/Users/tobiasknudsen/.zshrc.d/fabrica-completion.sh"
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --shell zsh)"
+fi

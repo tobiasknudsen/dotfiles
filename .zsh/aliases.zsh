@@ -6,6 +6,7 @@ alias db="~/dev/deskbooker/.venv/bin/python ~/dev/deskbooker/deskbooker/deskbook
 alias vær="finger 0475@graph.no | grep -v NRK"
 # Run black, isort, flake8 on all changed files
 alias pretty="git ls-files '*.py' -m | xargs -I % sh -c 'black %; isort %; flake8 %'"
+alias gs="git stash --include-untracked"
 
 # alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 
