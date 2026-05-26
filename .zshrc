@@ -28,9 +28,6 @@ export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Make thefuck work
-eval $(thefuck --alias)
-
 # Save history
 HISTSIZE=1000000  # how many lines of history to keep in memory
 SAVEHIST=1000000  # how many lines to keep in the history file
@@ -183,20 +180,9 @@ gl(){
     )+abort' \
 }
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 # Created by `pipx` on 2024-02-23 09:25:33
 export PATH="$PATH:/Users/tobiasknudsen/.local/bin"
 eval "$(asdf exec direnv hook "$(basename "$SHELL")")"
-
-# Fabrica CLI wrapper function
-source "/Users/tobiasknudsen/.zshrc.d/fabrica.sh"
-
-# Fabrica directory
-export FABRICA_DIR="/Users/tobiasknudsen/dev/fabrica"
-
-# Auto-completion for fabrica CLI
-source "/Users/tobiasknudsen/.zshrc.d/fabrica-completion.sh"
 
 # fnm
 FNM_PATH="/opt/homebrew/opt/fnm/bin"
