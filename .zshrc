@@ -19,12 +19,10 @@ export PATH=$PATH:/Users/tobiasknudsen/dev/overtime/
 
 
 # Make sure klipy works
-export PATH=$PATH:/Users/smith/.klipy/bin/
+export PATH=$PATH:/Users/tobiasknudsen/.klipy/bin/
 alias klipy="~/dev/klipy/.venv/bin/python -m klipy"
 
 zle_highlight+=(paste:none)
-
-export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -95,11 +93,13 @@ gsd(){
       --preview-label=' Stash ' \
       --preview 'git stash show -p --stat --color=always $(echo {} | cut -d "{" -f2 | cut -d "}" -f1)' \
       --bind 'enter:execute(
-          echo {} | while IFS= read -r line; do \
-              stash=$(echo "$line" | grep -o "stash@{[0-9]*}" | head -1) \
-              && [[ $stash != "" ]] \
-              && echo "Dropping stash: $stash" \
-              && git stash drop $stash; \
+          for line in {+}; do \
+              echo "$line" | grep -o "stash@{[0-9]*}" | head -1 | sed "s/stash@{\\([0-9]*\\)}/\\1/"; \
+          done \
+          | sort -rn \
+          | while read -r index; do \
+              echo "Dropping stash: stash@{$index}" \
+              && git stash drop "stash@{$index}"; \
           done \
         )+abort' \
 }
@@ -182,6 +182,11 @@ gl(){
 
 # Created by `pipx` on 2024-02-23 09:25:33
 export PATH="$PATH:/Users/tobiasknudsen/.local/bin"
+
+# asdf >= 0.16 no longer adds its shims to PATH, so do it here. Must be
+# prepended so asdf's uv wins over the standalone one in ~/.local/bin.
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 eval "$(asdf exec direnv hook "$(basename "$SHELL")")"
 
 # fnm
