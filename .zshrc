@@ -10,6 +10,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     fzf
+    history-only-successful
     )
 
 source $ZSH/oh-my-zsh.sh
