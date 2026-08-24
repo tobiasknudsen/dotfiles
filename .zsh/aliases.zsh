@@ -12,6 +12,7 @@ alias gs="git stash --include-untracked"
 
 # Django
 alias runserver='~/dev/tienda/.venv/bin/python manage.py runserver 0.0.0.0:8000'
+alias runmcp='uv run uvicorn tienda.mcp_server.asgi:application --reload --port 8002'
 alias makemigrations='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py makemigrations'
 alias showmigrations='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py showmigrations'
 alias migrate='POSTGRES_DB="tienda" TENANT="no" ~/dev/tienda/.venv/bin/python manage.py migrate'
