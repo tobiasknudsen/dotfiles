@@ -181,6 +181,16 @@ gl(){
     )+abort' \
 }
 
+# Set secret environment variables without exposing the value to the shell history
+setsecret() {
+  local name value
+  read -r "name?Env var name: " || return
+  read -rs "value?Value (hidden): " || return
+  print
+  export "${name}=${value}"
+  print -r -- "Exported ${name} (${#value} chars)"
+}
+
 # Created by `pipx` on 2024-02-23 09:25:33
 export PATH="$PATH:/Users/tobiasknudsen/.local/bin"
 
