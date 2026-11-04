@@ -1,0 +1,101 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run pytest *)",
+      "mcp__claude_ai_Grafana__get_dashboard_by_uid",
+      "mcp__claude_ai_Grafana__grafana_api_request",
+      "mcp__claude_ai_Grafana__user_info",
+      "mcp__claude_ai_Grafana__search_dashboards",
+      "mcp__claude_ai_Grafana__list_datasources",
+      "mcp__grafana__search_dashboards",
+      "mcp__claude_ai_Grafana__check_datasources_health",
+      "mcp__grafana__list_loki_label_names",
+      "mcp__grafana__list_prometheus_label_names",
+      "mcp__grafana__get_dashboard_by_uid",
+      "mcp__grafana__list_loki_label_values",
+      "mcp__grafana__query_loki_logs",
+      "mcp__grafana__update_dashboard",
+      "mcp__growthbook__growthbook_list_skills",
+      "mcp__growthbook__growthbook_read_skill",
+      "mcp__growthbook__growthbook_api_read",
+      "mcp__growthbook__growthbook_api_write",
+      "Bash(xargs grep -liE \"variable_weight\")",
+      "Bash(direnv allow *)",
+      "Bash(direnv reload *)",
+      "mcp__claude_ai_Linear__get_issue",
+      "mcp__claude_ai_Linear__save_issue",
+      "mcp__grafana__get_dashboard_panel_queries",
+      "mcp__grafana__query_prometheus",
+      "Bash(.venv/bin/ruff check *)",
+      "Bash(.venv/bin/ruff format *)",
+      "Bash(python3 -)",
+      "Bash(uvx ruff *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.envrc)",
+      "Bash(cat .env*)",
+      "Bash(grep * .env*)",
+      "Bash(sed * .envrc)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": []
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "sandbox": {
+    "network": {
+      "allowLocalBinding": true
+    },
+    "filesystem": {
+      "allowWrite": [
+        "~/.cache/uv"
+      ],
+      "denyRead": [
+        "./.env",
+        "./.envrc"
+      ]
+    }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "pluginConfigs": {
+    "ponytail@ponytail": {
+      "options": {
+        "ledger": false,
+        "sendNames": true
+      }
+    },
+    "grafana-mcp@inline": {
+      "options": {
+        "grafana_url": "https://grafana.infra.nube.tech"
+      }
+    }
+  },
+  "theme": "dark",
+  "autoCompactEnabled": true
+}
