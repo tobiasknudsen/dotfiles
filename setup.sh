@@ -89,7 +89,7 @@ apps=(
     android-studio
     android-platform-tools
     bruno
-    istat-menus@5
+    stats
     vanilla
 )
 
