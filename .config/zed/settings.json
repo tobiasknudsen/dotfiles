@@ -1,0 +1,135 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "language_models": {
+    "llama.cpp": {
+      "api_url": "http://localhost:11434",
+    },
+  },
+  "edit_predictions": {
+    "provider": "ollama",
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "model": "qwen2.5-coder:7b",
+      "prompt_format": "qwen",
+      "max_output_tokens": 128,
+    },
+  },
+  "icon_theme": "Zed (Default)",
+  "debugger": {
+    "stepping_granularity": "line",
+    "dock": "left",
+  },
+  "diff_view_style": "split",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "sort_by": "path",
+    "group_by": "staging",
+    "dock": "left",
+    "entry_primary_click_action": "file_diff",
+    "file_icons": true,
+  },
+  "agent": {
+    "terminal_init_command": "claude",
+    "dock": "right",
+    "threads_sidebar": {
+      "position": "right",
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false,
+  },
+  "inlay_hints": {
+    "show_value_hints": false,
+  },
+  "terminal": {
+    "starts_open": false,
+    "font_size": 15.0,
+    "cursor_shape": "bar",
+    "max_scroll_history_lines": 5000,
+  },
+  "git": {
+    "file_diff": {
+      "show_full_file": true,
+    },
+    "inline_blame": {
+      "enabled": true,
+    },
+  },
+  "preview_tabs": {
+    "enable_preview_from_file_finder": true,
+    "enable_keep_preview_on_code_navigation": true,
+  },
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "minimap": {
+    "show": "always",
+  },
+  "auto_indent_on_paste": false,
+  "use_on_type_format": false,
+  "show_edit_predictions": true,
+  "soft_wrap": "editor_width",
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "model": "sonnet",
+        "mode": "auto",
+      },
+      "type": "registry",
+    },
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 15.0,
+  "buffer_font_size": 15.0,
+  "buffer_font_features": {
+    "calt": false,
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "VSCode Dark Modern",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "ruff", "pylsp", "!pyright", "!ty", "!pyrefly", "..."],
+    },
+  },
+  "lsp": {
+    "pylsp": {
+      "binary": { "path": "/Users/tobiasknudsen/dev/tienda/.venv/bin/pylsp" },
+      "settings": {
+        "plugins": {
+          "pylsp_mypy": { "enabled": true, "live_mode": false, "dmypy": true },
+          "pycodestyle": { "enabled": false },
+          "pyflakes": { "enabled": false },
+          "mccabe": { "enabled": false },
+          "autopep8": { "enabled": false },
+          "yapf": { "enabled": false },
+          "rope_autoimport": { "enabled": false },
+        },
+      },
+    },
+    "basedpyright": {
+      "settings": {
+        "python": { "pythonPath": ".venv/bin/python" },
+        "basedpyright.analysis": { "typeCheckingMode": "off" },
+      },
+    },
+  },
+}

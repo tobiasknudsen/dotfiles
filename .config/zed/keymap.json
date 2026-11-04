@@ -1,0 +1,200 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor || FileFinder > Picker > menu",
+    "unbind": {
+      "cmd-l": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "TextFinder || TextFinder > Picker > Editor || TextFinder > Picker > menu",
+    "unbind": {
+      "cmd-l": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor || FileFinder > Picker > menu",
+    "unbind": {
+      "cmd-l": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "TextFinder || TextFinder > Picker > Editor || TextFinder > Picker > menu",
+    "unbind": {
+      "cmd-l": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-l": "agent::AddSelectionToThread",
+      "shift-enter": [
+        "terminal::SendText",
+        "\u001b\r"
+      ]
+    }
+  },
+  {
+    "context": "Terminal",
+    "unbind": {
+      "cmd-:": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "context": "AcpThread",
+    "bindings": {
+      "cmd-l": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "context": "AcpThread",
+    "unbind": {
+      "cmd-:": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-l": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-:": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-alt-cmd-1": ["zed::IncreaseUiFontSize", { "persist": false }],
+      "ctrl-alt-cmd-2": ["zed::IncreaseBufferFontSize", { "persist": false }],
+      "ctrl-alt-cmd-3": ["zed::DecreaseUiFontSize", { "persist": false }],
+      "ctrl-alt-cmd-4": ["zed::DecreaseBufferFontSize", { "persist": false }],
+      "ctrl-alt-cmd-5": ["zed::ResetUiFontSize", { "persist": false }],
+      "ctrl-alt-cmd-6": ["zed::ResetBufferFontSize", { "persist": false }],
+      "ctrl-alt-cmd-7": "agent::ResetAgentZoom",
+
+      "cmd-+": ["workspace::SendKeystrokes", "ctrl-alt-cmd-1 ctrl-alt-cmd-2"],
+      "cmd-=": ["workspace::SendKeystrokes", "ctrl-alt-cmd-1 ctrl-alt-cmd-2"],
+      "cmd--": ["workspace::SendKeystrokes", "ctrl-alt-cmd-3 ctrl-alt-cmd-4"],
+      "cmd-0": ["workspace::SendKeystrokes", "ctrl-alt-cmd-5 ctrl-alt-cmd-6 ctrl-alt-cmd-7"],
+      "cmd-shift-l": ["action::Sequence", ["agent::NewThread", "agent::AddSelectionToThread"]]
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-shift-l": "editor::SelectAllMatches"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-r cmd-w": [
+        "pane::CloseAllItems",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "cmd-k w": [
+        "pane::CloseAllItems",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  // Swap cmd-shift-f and cmd-alt-f: cmd-shift-f now opens the text finder,
+  // cmd-alt-f now opens the multibuffer project search.
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-f": "text_finder::Toggle",
+      "cmd-alt-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-shift-f": "text_finder::Toggle",
+      "cmd-alt-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-alt-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "BufferSearchBar",
+    "bindings": {
+      "cmd-alt-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "cmd-alt-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "ProjectSearchView",
+    "bindings": {
+      "cmd-alt-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-@": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": false,
+          "comment_empty_lines": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-´": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": false,
+          "comment_empty_lines": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-@": "pane::SplitRight"
+    }
+  }
+]
