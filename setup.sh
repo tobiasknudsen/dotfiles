@@ -76,7 +76,6 @@ apps=(
     bettertouchtool
     simplenote
     shottr
-    cursor
     1password
     grammarly-desktop
     google-drive
@@ -106,11 +105,6 @@ done
 echo "Installing zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
-
-echo "Symlink Cursor settings and keybindings"
-mkdir -p ~/Library/Application\ Support/Cursor/User
-ln -sf ~/.vscode/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
-ln -sf ~/.vscode/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
 
 printf 'Set Mac OS settings(y/n)? '
 read answer
