@@ -1,7 +1,7 @@
 {
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": false
   },
   "[json][jsonc][javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -32,7 +32,6 @@
   "workbench.editor.enablePreviewFromCodeNavigation": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "editor.formatOnType": false,
-  "mypy.runUsingActiveInterpreter": true,
   "eslint.format.enable": true,
   // "git.openDiffOnClick": false,
   "window.zoomLevel": 1,
@@ -76,4 +75,8 @@
   },
   "git.detectWorktrees": false,
   "window.autoDetectColorScheme": false,
+  "editor.scrollBeyondLastLine": false,
+  "mypy.enabled": false,
+  "claudeCode.preferredLocation": "sidebar",
+  "workbench.agentsWindowButton.enabled": false
 }

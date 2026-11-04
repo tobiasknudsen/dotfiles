@@ -55,5 +55,31 @@
     "key": "alt+cmd+s",
     "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
     "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
-  }
+  },
+  {
+    "key": "cmd+l",
+    "command": "claude-vscode.insertAtMention",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-composer.sendToAgent",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  { "key": "cmd+shift+l", "command": "-composer.newAgentChat" },
+  {
+    "key": "cmd+shift+l",
+    "command": "claude-vscode.newConversation"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-deleteRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-aichat.newchataction",
+    "when": "!isGlass"
+  },
+
 ]
