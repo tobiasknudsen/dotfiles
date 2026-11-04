@@ -1,11 +1,12 @@
+#!/bin/bash
+
 # Check for Homebrew,
 # Install if we don't have it
-if test ! $(which brew); then
+if ! command -v brew &>/dev/null; then
   echo "Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/baRUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  brew tap homebrew/cask-versions
 fi
 
 # Update homebrew recipes
@@ -14,12 +15,6 @@ brew update
 
 echo "Installing Git..."
 brew install git
-
-echo "Git config"
-git config --global user.name "Tobias Knudsen"
-git config --global user.email tobias.hartvedt.knudsen@gmail.com
-git config --global pull.rebase true
-git config --global push.autoSetupRemote true
 
 # This should already be done since this file is in the dotfiles repo
 # echo "Getting dotfiles..."
@@ -32,26 +27,45 @@ echo "Set up SSH with 1password"
 read -p "Press [Enter] when finished..."
 
 echo "Installing other brew stuff..."
-brew install fzf
-brew install precommit
-brew install terraform
-brew install poetry
-brew install bruno
-
+brew install \
+    fzf \
+    pre-commit \
+    poetry \
+    gh \
+    direnv \
+    k9s \
+    kubernetes-cli \
+    kubectx \
+    flyctl \
+    postgresql@18 \
+    cloc \
+    exiftool \
+    graphviz \
+    mcp-grafana
+# Core terraform is stuck on the last MPL release, the HashiCorp tap has current versions
+brew install hashicorp/tap/terraform
 
 echo "Install asdf..."
 brew install asdf
 
 echo "Install latest version of python"
+export PATH="$HOME/.asdf/shims:$PATH"
 asdf plugin add python
 asdf install python latest
+asdf set -u python latest
+
+echo "Install latest version of uv"
+asdf plugin add uv
+asdf install uv latest
+asdf set -u uv latest
 
 echo "Install latest version of nodejs"
 asdf plugin add nodejs
 asdf install nodejs latest
+asdf set -u nodejs latest
 
 echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 apps=(
@@ -66,6 +80,18 @@ apps=(
     1password
     grammarly-desktop
     google-drive
+    zed
+    docker-desktop
+    spotify
+    claude
+    claude-code
+    ollama-app
+    gcloud-cli
+    android-studio
+    android-platform-tools
+    bruno
+    istat-menus@5
+    vanilla
 )
 
 for app in "${apps[@]}"; do
@@ -81,21 +107,10 @@ echo "Installing zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
 
-echo "Open Cursor to create Application Support folder"
-read -p "Press [Enter] when finished..."
-
-echo "Create symlink for settings and keybindings"
-rm ~/Library/Application\ Support/Cursor/User/settings.json
-ln -s ~/.vscode/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
-
-rm ~/Library/Application\ Support/Cursor/User/keybindings.json
-ln -s ~/.vscode/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
-
-echo "Download non brew apps"
-curl -L https://github.com/davidwernhart/AlDente-Charge-Limiter/releases/download/1.20/AlDente.dmg --output ~/Downloads/AlDente.dmg
-curl -L https://updates.topnotch.app/TopNotch-latest.zip --output ~/Downloads/TopNotch-latest.zip
-curl -L https://download.bjango.com/istatmenus5/ --output ~/Downloads/istatmenus5.zip
-curl -L https://macrelease.matthewpalmer.net/Vanilla.dmg --output ~/Downloads/Vanilla.dmg
+echo "Symlink Cursor settings and keybindings"
+mkdir -p ~/Library/Application\ Support/Cursor/User
+ln -sf ~/.vscode/settings.json ~/Library/Application\ Support/Cursor/User/settings.json
+ln -sf ~/.vscode/keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json
 
 printf 'Set Mac OS settings(y/n)? '
 read answer
@@ -104,10 +119,41 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     echo "Setting Mac OS settings..."
 
     # Dock
-    defaults write com.apple.dock tilesize -int 60
+    defaults write com.apple.dock tilesize -int 49
     defaults write com.apple.dock autohide -bool true
     defaults write com.apple.dock show-recents -bool false
+    defaults write com.apple.dock showDesktopGestureEnabled -bool false
+    defaults write com.apple.dock showMissionControlGestureEnabled -bool false
+    # Disable bottom-right hot corner (Quick Note by default)
+    defaults write com.apple.dock wvous-br-corner -int 1
+    defaults write com.apple.dock wvous-br-modifier -int 0
     killall Dock
+
+    # Desktop & windows: don't click wallpaper to reveal desktop, no gaps between tiled windows, hide desktop items
+    defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+    defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
+    defaults write com.apple.WindowManager HideDesktop -bool true
+
+    # Trackpad: tap to click, faster tracking, multi-finger swipes/pinches off (BetterTouchTool handles gestures)
+    for domain in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
+        defaults write $domain Clicking -bool true
+        for gesture in TrackpadThreeFingerHorizSwipeGesture TrackpadThreeFingerVertSwipeGesture \
+            TrackpadFourFingerHorizSwipeGesture TrackpadFourFingerVertSwipeGesture \
+            TrackpadFourFingerPinchGesture TrackpadFiveFingerPinchGesture; do
+            defaults write $domain $gesture -int 0
+        done
+    done
+    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2
+    defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
+
+    # Keyboard: fast key repeat
+    defaults write NSGlobalDomain KeyRepeat -int 2
+    defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+    # Dark mode, analog menu bar clock
+    defaults write NSGlobalDomain AppleInterfaceStyle -string Dark
+    defaults write com.apple.menuextra.clock IsAnalog -bool true
 
     #"Expanding the save panel by default"
     defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -123,13 +169,22 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     #"Disable smart quotes and smart dashes"
     defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
     defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+    defaults write NSGlobalDomain NSAllowContinuousSpellChecking -bool false
+
+    # Finder: show all file extensions, path and status bar, list view, new windows open home, no internal disks on desktop
+    defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+    defaults write com.apple.finder ShowPathbar -bool true
+    defaults write com.apple.finder ShowStatusBar -bool true
+    defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+    defaults write com.apple.finder NewWindowTarget -string PfHm
+    defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 
     #"Avoiding the creation of .DS_Store files on network volumes"
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
     # Save screenshots to ~/Screenshots
-    mkdir ~/Screenshots
-    defaults write com.apple.screencapture "location" -string "~/Screenshots" && killall SystemUIServer
+    mkdir -p ~/Screenshots
+    defaults write com.apple.screencapture "location" -string "$HOME/Screenshots" && killall SystemUIServer
 
     killall Finder
 fi
