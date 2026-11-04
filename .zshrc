@@ -25,17 +25,11 @@ alias klipy="~/dev/klipy/.venv/bin/python -m klipy"
 
 zle_highlight+=(paste:none)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Save history
 HISTSIZE=1000000  # how many lines of history to keep in memory
 SAVEHIST=1000000  # how many lines to keep in the history file
 # Configure direnv
 eval "$(direnv hook zsh)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Interactive branch deletion from: https://peterp.me/cli-tips-interactive-branch-delete/
 ibd() {
@@ -191,17 +185,9 @@ setsecret() {
   print -r -- "Exported ${name} (${#value} chars)"
 }
 
-# Created by `pipx` on 2024-02-23 09:25:33
+# uv tool / pipx binaries
 export PATH="$PATH:/Users/tobiasknudsen/.local/bin"
 
 # asdf >= 0.16 no longer adds its shims to PATH, so do it here. Must be
 # prepended so asdf's uv wins over the standalone one in ~/.local/bin.
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-eval "$(asdf exec direnv hook "$(basename "$SHELL")")"
-
-# fnm
-FNM_PATH="/opt/homebrew/opt/fnm/bin"
-if [ -d "$FNM_PATH" ]; then
-  eval "$(fnm env --shell zsh)"
-fi
