@@ -91,6 +91,7 @@ apps=(
     bruno
     stats
     vanilla
+    vscodium
 )
 
 for app in "${apps[@]}"; do
@@ -105,6 +106,15 @@ done
 echo "Installing zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
+
+echo "Symlink VSCodium settings and keybindings"
+mkdir -p ~/Library/Application\ Support/VSCodium/User
+ln -sf ~/.vscode/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
+ln -sf ~/.vscode/keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
+
+echo "Installing VSCodium extensions"
+# Update the list with: codium --list-extensions > ~/.vscode/extensions.txt
+xargs -L1 codium --install-extension < ~/.vscode/extensions.txt
 
 printf 'Set Mac OS settings(y/n)? '
 read answer
